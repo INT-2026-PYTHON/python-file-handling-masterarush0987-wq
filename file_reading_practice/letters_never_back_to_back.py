@@ -51,5 +51,18 @@ Answer = seen - doubled
 Sorted -> ['b', 'd', 'e', 'h', 'k', 'm', 'n',
            'r', 'u', 'v', 'y']
 =================================================
+# ANSWER:
 
+with open('sowpods.txt', 'r') as file:
+    seen = set()
+    doubled = set()
+    for line in file:
+        word = line.strip().lower()
+        for ch in word:
+            seen.add(ch)
+        for i in range(len(word) - 1):
+            if word[i] == word[i + 1]:
+                doubled.add(word[i])
+    result = sorted(seen - doubled)
+    print(result)
 """

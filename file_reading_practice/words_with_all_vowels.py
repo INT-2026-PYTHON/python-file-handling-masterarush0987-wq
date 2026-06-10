@@ -38,5 +38,19 @@ Explanation:
 - "audio"     missing e               -> no
 - "unequivocal" contains a,e,i,o,u   -> yes
 =================================================
+# ANSWER:
 
+def has_all_vowels(word):
+    word_lower = word.lower()
+    return all(vowel in word_lower for vowel in 'aeiou')
+
+with open('sowpods.txt', 'r') as file:
+    result = []
+    for line in file:
+        word = line.strip()
+        if has_all_vowels(word):
+            result.append(word)
+            print(word)
+    
+    print(f"Total words with all vowels: {len(result)}")
 """

@@ -56,5 +56,18 @@ Difference (sonnet - sowpods)
               -> {'i', 'compare', 'to', 'a'}
 After sorting -> ['a', 'compare', 'i', 'to'].
 =================================================
+# ANSWER:
 
+with open('sowpods.txt', 'r') as f:
+    sowpods = set(word.strip() for word in f)
+
+with open('sonnet_words.txt', 'r') as f:
+    sonnet_words = set(word.strip() for word in f)
+
+unique_to_sonnet = sonnet_words - sowpods
+sorted_unique = sorted(unique_to_sonnet)
+
+print("Words in sonnet but not in sowpods:")
+print(sorted_unique)
+print(f"Total: {len(sorted_unique)}")
 """
