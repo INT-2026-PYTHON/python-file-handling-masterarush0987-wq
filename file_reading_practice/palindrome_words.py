@@ -49,5 +49,18 @@ Explanation:
 - "racecar"  reversed -> "racecar" -> palindrome
 - "banana"   reversed -> "ananab"  -> not
 =================================================
+# ANSWER:
 
+def is_palindrome(word):
+    return word == word[::-1]
+
+palindromes = []
+with open('sowpods.txt', 'r') as file:
+    for line in file:
+        word = line.strip()
+        if is_palindrome(word):
+            palindromes.append(word)
+            print(word)
+
+print(f"Total palindromes: {len(palindromes)}")
 """
